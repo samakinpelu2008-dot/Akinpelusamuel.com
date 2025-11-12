@@ -24,7 +24,6 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       margin: 0;
-      padding-top: 60px; /* For fixed navbar */
       scroll-behavior: smooth;
       transition: background 0.3s, color 0.3s;
     }
@@ -35,7 +34,8 @@
       top: 0;
       left: 0;
       width: 100%;
-      background: var(--card-bg);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       display: flex;
       justify-content: space-between;
@@ -74,7 +74,7 @@
 
     header {
       text-align: center;
-      padding: 50px 20px;
+      padding: 120px 20px 50px; /* <-- increased top padding */
       background: linear-gradient(135deg, var(--accent), #00bcd4);
       color: white;
       position: relative;
@@ -113,6 +113,7 @@
       opacity: 0;
       transform: translateY(50px);
       transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      scroll-margin-top: 100px;
     }
 
     section.visible {
@@ -211,7 +212,7 @@
         margin: 10px 0;
       }
       header {
-        padding: 30px 10px;
+        padding: 100px 10px 40px;
       }
       header img {
         width: 120px;
@@ -328,4 +329,4 @@
     sections.forEach(section => observer.observe(section));
   </script>
 </body>
-      </html>
+</html>
