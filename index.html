@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <style>
+    :root {
+      --bg-color: #f9fafc;
+      --text-color: #333;
+      --card-bg: white;
+      --accent: #007bff;
+    }
+
+    body.dark {
+      --bg-color: #1e1e1e;
+      --text-color: #f0f0f0;
+      --card-bg: #2c2c2c;
+      --accent: #00bcd4;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, var(--accent), #00bcd4);
+      color: white;
+      position: relative;
+    }
+
+    #theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      color: var(--accent);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      max-width: 100%;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: var(--card-bg);
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin: 20px 0 10px;
+      font-size: 2em;
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--accent);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      header {
+        padding: 30px 10px;
+      }
+      header img {
+        width: 120px;
+        height: 120px;
+      }
+      section {
+        margin: 20px;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button id="theme-toggle">🌙 Dark Mode</button>
+    <img src="https://ibb.co/jZ83QT84" alt="My Profile Photo" />
+    <h1>Your Name</h1>
+    <p>Web Developer | Designer | Tech Enthusiast</p>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>
+      I’m a passionate web developer who loves creating clean, modern, and responsive websites.
+      I enjoy solving real-world problems through technology and design.
+    </p>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>Project 1:</strong> A responsive website built with HTML, CSS, and JavaScript.</li>
+      <li><strong>Project 2:</strong> A simple chat app using Firebase and vanilla JS.</li>
+      <li><strong>Project 3:</strong> A portfolio site like this one 😉.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    <a href="#" class="btn">View My CV</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Your Name. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById("theme-toggle");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      toggleBtn.textContent = document.body.classList.contains("dark")
+        ? "☀️ Light Mode"
+        : "🌙 Dark Mode";
+    });
+  </script>
+</body>
+</html>
