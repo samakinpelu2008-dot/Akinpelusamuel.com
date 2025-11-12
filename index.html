@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
+  <title>Akinpelu Samuel Oluwapelumi | Portfolio</title>
   <style>
     :root {
       --bg-color: #f9fafc;
@@ -24,8 +24,52 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       margin: 0;
-      padding: 0;
+      padding-top: 60px; /* For fixed navbar */
+      scroll-behavior: smooth;
       transition: background 0.3s, color 0.3s;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--card-bg);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-weight: bold;
+      color: var(--accent);
+      font-size: 1.2em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent);
     }
 
     header {
@@ -56,15 +100,24 @@
       object-fit: cover;
       border: 4px solid white;
       max-width: 100%;
+      margin-bottom: 20px;
     }
 
     section {
-      max-width: 800px;
+      max-width: 900px;
       margin: 50px auto;
       padding: 20px;
       background: var(--card-bg);
       border-radius: 15px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h1 {
@@ -96,14 +149,67 @@
       background: #0056b3;
     }
 
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .project-card {
+      flex: 1 1 250px;
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .skill {
+      flex: 1 1 150px;
+      padding: 15px;
+      background: var(--card-bg);
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-links a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
       color: #777;
     }
 
-    /* Responsive Design */
+    /* Responsive */
     @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
       header {
         padding: 30px 10px;
       }
@@ -115,44 +221,90 @@
         margin: 20px;
         padding: 15px;
       }
+      .projects, .skills {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Akinpelu Samuel</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <header>
     <button id="theme-toggle">🌙 Dark Mode</button>
-    <img src="https://i.ibb.co/HpKGbVKg/IMG-20250816-WA0002.jpg" alt="My Profile Photo">
+    <img src="https://i.ibb.co/HpKGbVKg/IMG-20250816-WA0002.jpg" alt="Profile Photo" />
+    <h1>Akinpelu Samuel Oluwapelumi</h1>
     <p>Web Developer | Designer | Tech Enthusiast</p>
   </header>
 
-  <section>
+  <section id="about">
     <h2>About Me</h2>
     <p>
-      I’m a passionate web developer who loves creating clean, modern, and responsive websites.
-      I enjoy solving real-world problems through technology and design.
+      I am a passionate web developer and designer with a focus on creating clean, modern, and user-friendly websites. 
+      I enjoy learning new technologies and solving real-world problems through programming and design. 
+      My goal is to build solutions that make life easier and more enjoyable for users.
     </p>
   </section>
 
-  <section>
+  <section id="projects">
     <h2>Projects</h2>
-    <ul>
-      <li><strong>Project 1:</strong> A responsive website built with HTML, CSS, and JavaScript.</li>
-      <li><strong>Project 2:</strong> A simple chat app using Firebase and vanilla JS.</li>
-      <li><strong>Project 3:</strong> A portfolio site like this one 😉.</li>
-    </ul>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Project 1</h3>
+        <p>A responsive website built with HTML, CSS, and JavaScript.</p>
+        <a href="#" class="btn">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>Project 2</h3>
+        <p>A simple chat app using Firebase and vanilla JS.</p>
+        <a href="#" class="btn">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>Project 3</h3>
+        <p>This portfolio website showcasing my skills and projects.</p>
+        <a href="#" class="btn">View Project</a>
+      </div>
+    </div>
   </section>
 
-  <section>
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">HTML & CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React.js</div>
+      <div class="skill">UI/UX Design</div>
+    </div>
+  </section>
+
+  <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-    <a href="#" class="btn">View My CV</a>
+    <p>Email: <a href="mailto:stech3112025@gmail.com">stech3112025@gmail.com</a></p>
+    <p>Phone: 09031163306</p>
+    <div class="contact-links">
+      <a href="#">TikTok</a>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+    </div>
+    <a href="#" class="btn">Download CV</a>
   </section>
 
   <footer>
-    <p>© 2025 Your Name. All rights reserved.</p>
+    <p>© 2025 Akinpelu Samuel Oluwapelumi. All rights reserved.</p>
   </footer>
 
   <script>
+    // Dark Mode Toggle
     const toggleBtn = document.getElementById("theme-toggle");
     toggleBtn.addEventListener("click", () => {
       document.body.classList.toggle("dark");
@@ -160,6 +312,20 @@
         ? "☀️ Light Mode"
         : "🌙 Dark Mode";
     });
+
+    // Scroll Animations
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    sections.forEach(section => observer.observe(section));
   </script>
 </body>
-</html>
+      </html>
